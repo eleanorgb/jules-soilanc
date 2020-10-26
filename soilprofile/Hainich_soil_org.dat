@@ -1,0 +1,9 @@
+#10. Schrumpf M, Schulze ED, Kaiser K, Schumacher J (2011) How accurately can soil organic carbon stocks and stock changes be quantified by soil inventories? Biogeosciences 8: 1193–1212. [Google Scholar]
+top,bottom,OC,sdOC
+0,0.05,2.332,0.412
+0.05,0.1,1.81,0.38
+0.1,0.2,2.78,0.53
+0.2,0.3,1.92,0.46
+0.3,0.4,1.35,0.49
+0.4,0.5,0.93,0.54
+0.5,0.6,0.77,0.56
