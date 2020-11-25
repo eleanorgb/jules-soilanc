@@ -14,9 +14,9 @@ siteid.all <- c("Abiskomire", "Merbleue", "Zackenberg", "Lompolojankka",
                 "Twitchell", "Iskoras", "Auchencorth", "Kopytkowo", "Hainich",
                 "Scottycreek","Brasschaat","Abisko","Scottycreek","Brasschaat")
 #siteid.all <- "Brasschaat"
-siteid.all <- c("Carlow","Turkeypt")
-#simname  <- "14layers" # used to define model depths
-simname  <- "1cmto4m" # used to define model depths
+siteid.all <- c("Merbleue")
+simname  <- "14layers" # used to define model depths
+#simname  <- "1cmto4m" # used to define model depths
 #simname  <- "20layers" # used to define model depths
 if (simname=="14layers"){strlyr <- "14"}
 if (simname=="20layers"){strlyr <- "20"}

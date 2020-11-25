@@ -12,7 +12,7 @@ zz  <-  cumsum(soil_thick)
 orgsoil <- NULL
 bulkdens <- NULL
 soc_obs <- 0.0
-depth_change <- 0.0
+depth_change <- 0.0  #top of soil layer
 
 # below from original paper
 # if (siteid =="Samoylov") {soc_prop <- 0.520833}  # site dependent
@@ -26,18 +26,12 @@ depth_change <- 0.0
 # and currently have non precise definitions of soc and psd
 if (siteid=="Siikaneva" || siteid == "Auchencorth"||
        siteid=="Degero" || siteid=="CA_WP1" || siteid=="Iskoras" ||
-       siteid=="Merbleue" || siteid=="Kopytkowo") {
+       siteid=="Kopytkowo") {
   sand <- 0.3
 	silt <- 0.4
 	clay <- 0.3
   depth_change <- c(0, 1)
   soc_obs <-c(1000, 1000)
-  if (soilprofiles && siteid=="Merbleue") {
-    soilprofile <- read.table("soilprofile/Merbleue_soil_profile.dat", header=TRUE)
-    depth_change <- c(diff(soilprofile$depth)/2,0)+soilprofile$depth
-    bd_obs <- as.numeric(soilprofile$bdens)*1000
-    soc_obs  <- as.numeric(soilprofile$c_kg_m3)
-  }
   if (soilprofiles && siteid=="Degero") {
     soilprofile <- read.table("soilprofile/Degero_soil_profile.dat", header=TRUE)
     depth_change <- c(diff(soilprofile$depth)/2,0)+soilprofile$depth
@@ -50,7 +44,18 @@ if (siteid=="Siikaneva" || siteid == "Auchencorth"||
     bd_obs <- as.numeric(soilprofile$bdens)*1000
     soc_obs  <- as.numeric(soilprofile$c_kg_m3)
   }
-}   
+}
+
+if (soilprofiles && siteid=="Merbleue") {
+  sand <- 0.92
+	silt <- 0.04
+	clay <- 0.04
+  soilprofile <- read.table("soilprofile/Merbleue_soil_profile.dat", skip=2, header=TRUE)
+  depth_change <- soilprofile$min_depth
+  bd_obs <- as.numeric(soilprofile$bd_g_cm3)*1000
+  soc_obs  <- as.numeric(soilprofile$c_kg_m3)
+}
+
 #------------------------------------
 
 
