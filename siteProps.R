@@ -21,12 +21,46 @@ depth_change <- 0.0  #top of soil layer
 # if (siteid =="Svalbard_Ny") {soc_prop <- 0.0885}  # site dependent
 # above from original paper
 
+# These are the new sites from Angela 
+# we need further information to make the soil properties better
+# Ive assumed they are peaty for the top 3 m
+
+# Inirida: peatland site on sand soils (Guianan shield), likely not 
+# very deep (varying from 30 cm to 1m or so). pH = approx.4.  
+# Conductivity = approx. 30-60 microsiemens. 
+
+# Amacayacu:  deeper peat (>2m), it is affected by the amazon river,
+# so the peat has probably got a bit more sediment in it 
+     
+# Mpologoma wetland, Uganda –This is a papyrus peatland.
+# Depth of peat 30-150 cm.
+
+# Opala, Democratic Republic of Congo 
+  
+# South East Asian sites
+# Sumatra, April tower site: there is a paper: 
+# https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.15019
+# It is the pristine site, on and ombrotrophic, acidic and nutrient-poor, peat swamp forest. 
+# The surface peat type is fibric and the average peat thickness is ~9 ± 1 m 
+# in the area surrounding the tower. 
+# Surface (0–50 cm) peat bulk density (g/cm3) 	0.08 ± 0.03
+# Surface (0–50 cm) peat pH	3.6 ± 0.10	
+
+if (siteid=="Inirida" || siteid == "Amacayacu" || siteid == "Iquitos" ||
+       siteid=="Mpologoma" || siteid=="Opala" || siteid=="Sumatra") {
+        sand <- 0.3
+	silt <- 0.5
+	clay <- 0.2
+  depth_change <- c(0, 1)
+  soc_obs <-c(1000, 1000)
+}
+
 #------------------------------------
 # these sites all have peat soils in the top 3m
 # and currently have non precise definitions of soc and psd
 if (siteid=="Siikaneva" || siteid == "Auchencorth"||
        siteid=="Degero" || siteid=="CA_WP1" || siteid=="Iskoras" ||
-       siteid=="Kopytkowo") {
+       siteid=="Kopytkowo" || siteid=="Congo") {
   sand <- 0.3
 	silt <- 0.4
 	clay <- 0.3

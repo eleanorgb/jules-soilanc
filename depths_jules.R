@@ -26,6 +26,7 @@ if (simname=="14layers") {
                       }
 
    depths <- NULL  #these depths are for the middle of each layer
+   # these are not strictly right.
    depths[1]<-soil_thick[1]/2.0
    for (ijk in 2:length(soil_thick)) {
       depths[ijk]=depths[ijk-1]+soil_thick[ijk-1]/2.0+soil_thick[ijk]/2.0

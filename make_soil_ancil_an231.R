@@ -14,8 +14,9 @@ siteid.all <- c("Abiskomire", "Merbleue", "Zackenberg", "Lompolojankka",
                 "Twitchell", "Iskoras", "Auchencorth", "Kopytkowo", "Hainich",
                 "Scottycreek","Brasschaat","Abisko","Scottycreek","Brasschaat")
 #siteid.all <- "Brasschaat"
-siteid.all <- c("Merbleue")
-simname  <- "14layers" # used to define model depths
+siteid.all <- c("Congo")
+siteid.all <- c("Inirida" ,"Amacayacu" ,"Iquitos" ,"Mpologoma","Opala" ,"Sumatra")
+simname  <- "20layers" # used to define model depths
 #simname  <- "1cmto4m" # used to define model depths
 #simname  <- "20layers" # used to define model depths
 if (simname=="14layers"){strlyr <- "14"}
@@ -39,7 +40,7 @@ source("siteProps.R")
 # organic soil properties initialised
 b_org <- c(2.7, 6.1, 12.0)
 sathh_org <- c(0.0103, 0.0102, 0.0101)
-ks_org <- c(0.28, 0.002, 0.0001)
+ks_org <- c(0.28, 0.002, 0.0001) # potentially reduce surface value here?
 sm_sat_org <- c(0.93, 0.88, 0.83)
 hcap_org <- 0.58e+6
 hcon_org <- 0.06
