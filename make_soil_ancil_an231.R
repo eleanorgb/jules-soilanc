@@ -5,24 +5,22 @@ pwdout <- "/data/users/hadea/PAGE21_sites/ancillaries/"
 # vn4 - updated to include profile information from soil organic carbon obs
 soilprofiles = TRUE  #keep this as true if possible
 silt_docm=FALSE
+mineralsoil_output=TRUE
 
 siteid.all <- c("Abiskomire", "Merbleue", "Zackenberg", "Lompolojankka", 
                 "Samoylov", "CA_WP1", "Degero", "EML", "Kytalyk", 
-                "Seidamin", "Seidapeat", "Svalbard_Ny", "Siikaneva",
+                "Seidamin", "Seidapeat", "Siikaneva",
                 "Spasskaya_Pad", "PleistocenePark", "ImnavaitFen",
                 "ImnavaitRidge", "ImnavaitTussock", "Abisko", "Chersky",
                 "Twitchell", "Iskoras", "Auchencorth", "Kopytkowo", "Hainich",
-                "Scottycreek","Brasschaat","Abisko","Scottycreek","Brasschaat")
-#siteid.all <- "Brasschaat"
-siteid.all <- c("Congo")
-siteid.all <- c("Inirida" ,"Amacayacu" ,"Iquitos" ,"Mpologoma","Opala" ,"Sumatra")
+                "Scottycreek","Brasschaat","Abisko","Scottycreek","Brasschaat",
+                "Congo", "Svalbard_Ny","Carlow")
+#siteid.all <- c("Inirida" ,"Amacayacu" ,"Iquitos" ,"Mpologoma","Opala" ,"Sumatra")
 simname  <- "20layers" # used to define model depths
-#simname  <- "1cmto4m" # used to define model depths
 #simname  <- "20layers" # used to define model depths
 if (simname=="14layers"){strlyr <- "14"}
 if (simname=="20layers"){strlyr <- "20"}
 if (simname=="14layers20"){strlyr <- "20"}
-if (simname=="1cmto4m"){strlyr <- "400"}
 version_no="v4"
 
 # make dummy ctracer file to start things off
@@ -73,15 +71,14 @@ for (siteid in siteid.all) {
     if (!silt_docm ) {
       fileout=paste(pwdout, siteid, "/", siteid, "_orgprops_",strlyr,"_",
                   version_no,".dat", sep="")
-      if (strlyr == "400") {
-        fileout=paste(pwdout, "hires_soil", "/", siteid, "_orgprops_",strlyr,"_",
-                    version_no,".dat", sep="")     
-        } 
       } else {
         fileout=paste(pwdout, siteid, "/", siteid, "_orgprops_",strlyr,"_",version_no,"_silt.dat", sep="")
   # fileout=paste("./", siteid, "_orgprops_14_v4.dat", sep="")
+      }
   }
-}
+  if (mineralsoil_output) {
+     fileout=paste(pwdout, siteid, "/", siteid, "_minprops_",strlyr,"_",version_no,".dat", sep="")
+   }
 
   # assign particle size distribution
   sand <- siteProps(siteid, soil_thick, soilprofiles)$sand
@@ -133,7 +130,9 @@ for (siteid in siteid.all) {
   # }
   # above from original paper
   #-----------------------------------
-
+  if (mineralsoil_output) {
+    soc_prop[]=0.0
+  }
   #------------------------------------
   # loop through the soil layers
   for (iloop in 1:length(zz)) {

@@ -1,4 +1,5 @@
-",,,SOC weight%,,,,,,,BD g/cm3,,,,,,,C Dens. g/cm3,,,,,##Barren ground: These sites have vegetation cover <5%. Located mainly in slopes and higher altitudes. Includes colluvium, tills, glaciofluvial deposits and moraines."
+"Barren ground: These sites have vegetation cover <5%. Located mainly in slopes and higher altitudes. Includes colluvium, tills, glaciofluvial deposits and moraines.",,,,,,,,,,,,,,,,,,,,,,
+,,,SOC weight%,,,,,,,BD g/cm3,,,,,,,C Dens. g/cm3,,,,,
 Upper depth (cm),Lower depth (cm),,mean,median,std,min,max,n,,mean,median,std,min,max,n,,mean,median,std,min,max,n
 0,1,,0.0859775508,0.0087047736,0.1248511465,0,0.3972171174,17,,1.1043619259,1.4895544258,0.7539241183,0.0851854167,2.0836632517,17,,0.022158487,0.0101119906,0.0199080051,0,0.060369551,17
 1,2,,0.0790227109,0.007343955,0.1332547712,0,0.3972171174,14,,1.2126932248,1.5859377455,0.789803552,0.0851854167,2.0836632517,14,,0.0168811144,0.0090390252,0.0172183593,0,0.054215904,14
